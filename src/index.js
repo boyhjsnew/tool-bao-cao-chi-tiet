@@ -4,13 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
+// Import PrimeReact styles locally (avoid relying only on CDN links)
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+
+import { PrimeReactProvider } from "primereact/api";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <PrimeReactProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </PrimeReactProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
